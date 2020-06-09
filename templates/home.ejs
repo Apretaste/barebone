@@ -1,0 +1,31 @@
+<div class="row">
+	<div class="col s12 center-align">
+		<img class="spacing-up-down" src="{{APP_SERVICE_PATH}}/images/logo.png" alt="logo">
+
+		<div class="input-field">
+			<input id="query" type="text"/>
+			<label for="query">¿Qué desea buscar?</label>
+		</div>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+
+		<br><br>
+
+		<a href="#!" onclick="apretaste.send({'command':'BAREBONE SEARCH'})"><span class="chip">#buscar</span></a>
+		<a href="#!" onclick="apretaste.send({'command':'BAREBONE RESULTS'})"><span class="chip">#resultados</span></a>
+		<a href="#!" onclick="apretaste.send({'command':'BAREBONE USERS'})"><span class="chip">#usuarios</span></a>
+		<a href="#!" onclick="apretaste.send({'command':'BAREBONE RULES'})"><span class="chip">#reglas</span></a>
+		<a href="#!" onclick="apretaste.send({'command':'BAREBONE VIEW'})"><span class="chip">#ver</span></a>
+		<a href="#!" onclick="apretaste.send({'command':'BAREBONE LIST'})"><span class="chip">#lista</span></a>
+		<a href="#!" onclick="apretaste.send({'command':'BAREBONE MESSAGE'})"><span class="chip">#mensaje</span></a>
+	</div>
+</div>
+
+<div class="bottom-space"></div>
+
+<!-- SUBMIT -->
+<div class="fixed-action-btn">
+	<a class="btn-floating btn-large waves-effect waves-light green" href="#!" onclick="apretaste.send({'command':'BAREBONE RESULTS'})">
+		<i class="material-icons">send</i>
+	</a>
+</div>
