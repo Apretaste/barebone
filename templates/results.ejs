@@ -12,6 +12,10 @@
 	<div class="col s12">
 		<% items.forEach(function(item) { %>
 			<div class="card">
+				<div class="card-person grey lighten-5">
+					<div class="person-avatar circle left" face="hombre" color="rojo" size="30" online="1"></div>
+					<a href="#!" class="F" onclick="apretaste.send({command:'BAREBONE PROFILE'})">@salvipascual</a>
+				</div>
 				<div class="card-content">
 					<span class="card-title"><%= item.title %></span>
 					<p>Vence el <%= moment(item.deadline).format('D [de] MMMM') %></p>
@@ -19,7 +23,7 @@
 				</div>
 				<div class="card-action grey lighten-4">
 					<a class="green-text" href="#!" onclick="apretaste.send({command:'BAREBONE VIEW'})">Ver mas</a>
-					<a class="green-text" href="#!" onclick="apretaste.send({command:'BAREBONE LIST'})">Usuario</a>
+					<a class="green-text" href="#!" onclick="apretaste.send({command:'BAREBONE PROFILE'})">Usuario</a>
 				</div>
 			</div>
 		<% }) %>

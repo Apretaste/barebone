@@ -40,16 +40,15 @@ class Service
 	 * @param Request
 	 * @param Response
 	 */
-	public function _list(Request $request, Response $response)
+	public function _profile(Request $request, Response $response)
 	{
 		$items = [
-			(Object) ['title' => 'Salvi Pascual', 'subtitle' => 'Nombre completo', 'icon' => 'person'],
 			(Object) ['title' => '+1 305 457 1656', 'subtitle' => 'Numero de telefono', 'icon' => 'local_phone'],
 			(Object) ['title' => 'salvi@apretaste.org', 'subtitle' => 'Correo electronico', 'icon' => 'email'],
 			(Object) ['title' => 'Estados Unidos', 'subtitle' => 'Pais de residencia', 'icon' => 'flag'],
 		];
 
-		$response->setTemplate("list.ejs", ['items' => $items]);
+		$response->setTemplate("profile.ejs", ['items' => $items]);
 	}
 
 	/**
@@ -81,12 +80,12 @@ class Service
 	public function _users(Request $request, Response $response)
 	{
 		$users = [
-			(Object) ['username' => 'tomasito', 'avatar' => 'hombre', 'avatarColor' => 'red'],
-			(Object) ['username' => 'andrecito', 'avatar' => 'artista', 'avatarColor' => 'verde'],
-			(Object) ['username' => 'martin', 'avatar' => 'hippie', 'avatarColor' => 'amarillo'],
-			(Object) ['username' => 'pedro', 'avatar' => 'jefe', 'avatarColor' => 'naranja'],
-			(Object) ['username' => 'tina', 'avatar' => 'sensei', 'avatarColor' => 'azul'],
-			(Object) ['username' => 'maria', 'avatar' => 'apretina', 'avatarColor' => 'morado'],
+			(Object) ['username' => 'tomasito', 'gender' => 'M', 'avatar' => 'hombre', 'avatarColor' => 'red'],
+			(Object) ['username' => 'andrecito', 'gender' => '', 'avatar' => 'artista', 'avatarColor' => 'verde'],
+			(Object) ['username' => 'martin', 'gender' => 'F', 'avatar' => 'hippie', 'avatarColor' => 'amarillo'],
+			(Object) ['username' => 'pedro', 'gender' => 'M', 'avatar' => 'jefe', 'avatarColor' => 'naranja'],
+			(Object) ['username' => 'tina', 'gender' => 'F', 'avatar' => 'sensei', 'avatarColor' => 'azul'],
+			(Object) ['username' => 'maria', 'gender' => 'F', 'avatar' => 'apretina', 'avatarColor' => 'morado'],
 		];
 
 		$response->setTemplate("users.ejs", ['users' => $users, 'page' => 1, 'pages' => 3]);

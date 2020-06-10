@@ -1,0 +1,39 @@
+<div class="row">
+	<div class="col s12">
+		<h1>Perfil</h1>
+
+		<ul class="collection profile">
+			<li class="collection-item avatar">
+				<div class="person-avatar circle" face="hombre" color="rojo" size="45" online="1"></div>
+				<span class="title M">@salvipascual</span>
+				<p>Salvi Pascual</p>
+				<a href="#!" class="secondary-content green-text first"><i class="material-icons">chat</i></a>
+				<a href="#!" class="secondary-content green-text second"><i class="material-icons">person_add</i></a>
+			</li>
+		</ul>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor.</p>
+
+		<ul class="collection one-line">
+			<% items.forEach(function(item) { %>
+				<li class="collection-item avatar">
+					<i class="tiny material-icons circle"><%= item.icon %></i>
+					<span class="title"><%= item.title %></span>
+					<p class="blue-grey-text"><%= item.subtitle %></p>
+				</li>
+			<% }) %>
+		</ul>
+	</div>
+</div>
+
+<div class="bottom-space"></div>
+
+<!-- BUTTON -->
+<div id="btn" class="fixed-action-btn">
+	<a class="btn-floating btn-large waves-effect waves-light green" href="#!" onclick="apretaste.back()">
+		<i class="material-icons">arrow_back</i>
+	</a>
+</div>

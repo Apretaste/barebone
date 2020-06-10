@@ -6,12 +6,20 @@ A continuacion, se proponen varios "componentes" que seran agrupados en "interfa
 # Componentes
 
 * Tabs
+* Tag
+* Button
 * Floating button
-* Tags chips cloud
-* Results box
-* Users box
-* Icons collection
-* Numeric collection
+* Content box
+* User box
+* Profile box
+* Icon collection
+* Number collection
 * Pagination
 * Input form
 * Add new item
+
+# Interfaces
+
+* Home
+* Message
+* Form

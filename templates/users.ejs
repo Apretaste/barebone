@@ -11,14 +11,14 @@
 <div class="row">
 	<% users.forEach(function(item){ %>
 		<div class="col s4 m2">
-			<div class="card center-align">
+			<div class="card user-card center-align">
 				<div class="content">
 					<div class="person-avatar circle" face="<%= item.avatar %>" color="<%= item.avatarColor %>" size="40" online="1"></div>
-					@<%= item.username %>
+					<span class="<%= item.gender %>">@<%= item.username %></span>
 				</div>
 				<div class="action grey lighten-2 green-text">
-					<a href="#!"><i class="material-icons" onclick="apretaste.send({command: 'BAREBONE LIST'})">chat</i></a>
-					<a href="#!"><i class="material-icons" onclick="apretaste.send({command: 'BAREBONE LIST'})">person</i></a>
+					<a href="#!"><i class="material-icons" onclick="apretaste.send({command: 'BAREBONE'})">chat</i></a>
+					<a href="#!"><i class="material-icons" onclick="apretaste.send({command: 'BAREBONE PROFILE'})">person</i></a>
 				</div>
 			</div>
 		</div>
