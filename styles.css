@@ -12,6 +12,15 @@
 	color: #ec407a;
 }
 
+/* TAGS */
+
+.chip .icon {
+	float: left;
+	font-size: 16px;
+	line-height: 32px;
+	padding-right: 5px;
+}
+
 /* CARDS */
 
 .card .card-person {
@@ -81,6 +90,63 @@
 	top: 15px  !important;
 	left: 10px !important;
 	font-style: normal;
+}
+
+/* CHAT */
+
+ul.chat{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.chat li{
+	display:inline-block;
+	clear: both;
+	padding: 15px 20px;
+	border-radius: 30px;
+	margin-bottom: 3px;
+}
+
+ul.chat .date{
+	font-size: 10px;
+}
+
+.them{
+	background: #eee;
+	float: left;
+}
+
+.them .date{
+	color: #757575;
+}
+
+.mine{
+	float: right;
+	background: #4caf50;
+	color: #fff;
+}
+
+.mine .date{
+	color: #eeeeee;
+}
+
+.them + .mine{
+	border-bottom-right-radius: 5px;
+}
+
+.mine + .mine{
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.mine + .them{
+	border-bottom-left-radius: 5px;
+}
+
+.them + .them{
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
 }
 
 /* HOME SCREEN */

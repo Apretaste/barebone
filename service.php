@@ -35,7 +35,7 @@ class Service
 	}
 
 	/**
-	 * A possible list of repetitive items, or details about an item
+	 * A possible solution for user profile
 	 *
 	 * @param Request
 	 * @param Response
@@ -52,12 +52,56 @@ class Service
 	}
 
 	/**
+	 * A possible solution for chatting
+	 *
+	 * @param Request
+	 * @param Response
+	 */
+	public function _chat(Request $request, Response $response)
+	{
+		$items = [
+			(Object) ['date' => '2020-06-30 15:23:45', 'owner' => 'them', 'text' => 'Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:23:45', 'owner' => 'them', 'text' => 'Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:23:45', 'owner' => 'mine', 'text' => 'Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:23:45', 'owner' => 'them', 'text' => 'Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:23:45', 'owner' => 'them', 'text' => 'Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:23:45', 'owner' => 'them', 'text' => 'Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:23:45', 'owner' => 'mine', 'text' => 'Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:23:45', 'owner' => 'mine', 'text' => 'Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:23:45', 'owner' => 'mine', 'text' => 'Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:23:45', 'owner' => 'them', 'text' => 'Hola mundo cruel como anda todo el mio'],
+		];
+
+		$response->setTemplate("chat.ejs", ['items' => $items]);
+	}
+
+	/**
+	 * A possible view to a news feed
+	 *
+	 * @param Request
+	 * @param Response
+	 */
+	public function _news(Request $request, Response $response)
+	{
+		$items = [
+			(Object) ['title' => 'Primer titulo un poco largo hablando del tema', 'author' => 'Salvi Pascual', 'image' => 'article.jpg', 'date' => '2020-06-30 18:20:15'],
+			(Object) ['title' => 'Segundo titulo un poco largo hablando del tema', 'author' => 'Salvi Pascual', 'image' => 'article.jpg', 'date' => '2020-06-30 18:20:15'],
+			(Object) ['title' => 'Tercer titulo un poco largo hablando del tema', 'author' => 'Salvi Pascual', 'image' => 'article.jpg', 'date' => '2020-06-30 18:20:15'],
+			(Object) ['title' => 'Cuarto titulo un poco largo hablando del tema', 'author' => 'Salvi Pascual', 'image' => 'article.jpg', 'date' => '2020-06-30 18:20:15'],
+		];
+
+		$images = [__DIR__ . '/images/article.jpg'];
+
+		$response->setTemplate("news.ejs", ['items' => $items], $images);
+	}
+
+	/**
 	 * A possible view to open an article
 	 *
 	 * @param Request
 	 * @param Response
 	 */
-	public function _view(Request $request, Response $response)
+	public function _article(Request $request, Response $response)
 	{
 		$content = [
 			'title' => 'Una valiente jugada muy importante',
@@ -68,7 +112,7 @@ class Service
 
 		$images = [__DIR__ . '/images/article.jpg'];
 
-		$response->setTemplate("view.ejs", $content, $images);
+		$response->setTemplate("article.ejs", $content, $images);
 	}
 
 	/**

@@ -1,0 +1,44 @@
+<div class="row">
+	<div class="col s12">
+		<ul class="collection profile">
+			<li class="collection-item avatar">
+				<div class="person-avatar circle" face="apretina" color="rojo" size="45" online="1"></div>
+				<span class="title M">@maria</span>
+				<p>Maria Elvira</p>
+				<a href="#!" class="secondary-content green-text first" onclick="apretaste.back()"><i class="material-icons">arrow_back</i></a>
+			</li>
+		</ul>
+
+		<ul class="chat">
+			<% items.forEach(function(item) { %>
+				<li class="<%= item.owner %>">
+					<div class="date"><%= moment(item.date).format('DD/MM/YYYY h:mm:ss a') %></div>
+					<%= item.text %>
+				</li>
+			<% }) %>
+		</ul>
+	</div>
+</div>
+
+<div class="bottom-space"></div>
+
+<!-- FLOATING BUTTON -->
+<div class="fixed-action-btn">
+	<a href="#newModal" class="btn-floating btn-large waves-effect waves-light modal-trigger">
+		<i class="large material-icons">add</i>
+	</a>
+</div>
+
+<!-- MODAL NEW ITEM -->
+<div id="newModal" class="modal bottom-sheet">
+	<div class="modal-content">
+		<div class="input-field">
+			<textarea id="message" class="materialize-textarea"></textarea>
+			<label for="message">Escriba su mensaje</label>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<a href="#!" class="modal-close waves-effect waves-light btn-flat">Cerrar</a>
+		<a onclick="apretaste.send({command:'BAREBONE MESSAGE'})" class="modal-close waves-effect waves-green btn-flat">Enviar</a>
+	</div>
+</div>

@@ -12,10 +12,11 @@ A continuacion, se proponen varios "componentes" que seran agrupados en "interfa
 * Content box
 * User box
 * Profile box
+* Image box
+* Chat
 * Icon collection
 * Number collection
 * Pagination
-* Input form
 * Add new item
 
 # Interfaces
@@ -23,3 +24,6 @@ A continuacion, se proponen varios "componentes" que seran agrupados en "interfa
 * Home
 * Message
 * Form
+* News feed
+* Article
+* Chat screen

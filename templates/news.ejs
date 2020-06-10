@@ -1,0 +1,22 @@
+<div class="row">
+	<% items.forEach(function(item) { %>
+		<div class="col s12">
+			<div class="card">
+				<div class="card-image waves-effect waves-block waves-light">
+					<img src="{{APP_IMAGE_PATH}}<%= item.image %>">
+				</div>
+				<div class="card-content">
+					<span class="card-title grey-text text-darken-4"><%= item.title %></span>
+					<p class="blue-grey-text">
+						<%= item.author %>
+						&middot; 
+						<%= moment(item.date).format('DD/MM/YYYY h:mm:ss a') %></span>
+					</p>
+				</div>
+				<div class="card-action grey lighten-4">
+					<a class="green-text" href="#!" onclick="apretaste.send({command:'BAREBONE ARTICLE'})">Ver mas</a>
+				</div>
+			</div>
+		</div>
+	<% }) %>
+</div>
