@@ -1,43 +1,17 @@
 # Barebones
-Este es un ejemplo de como crear interfaces de servicios para Apretaste. El objetivo es que nos sirva para crear manuales de disenno utiles en el futuro y podamos agilizar el desarrollo de interfaces.
+Este es un ejemplo de como crear servicios para Apretaste. El objetivo es crear patrones de disenno para estandarizar el desarrollo interfaces. 
 
-A continuacion, propongo varios "componentes" que podemos reutilizar para los nuevos servicios, ya sea tal como son o haciendo cambios.
+A continuacion, se proponen varios "componentes" que seran agrupados en "interfaces". Si decidimos usar un componente nuevo, deberiamos agregarlo a esta lista.
 
-## Home page
-TODO
+# Componentes
 
-## Busqueda
-TODO
-
-## Back button
-TODO
-
-## Tags cloud
-TODO
-
-## Caja de resultados
-TODO
-
-## Cajas con imagenes
-TODO
-
-## Cajas de usuarios
-TODO
-
-## Articulo
-TODO
-
-## Lista de iconos
-TODO
-
-## Lista numerada
-TODO
-
-## Paginacion
-TODO
-
-## Nuevo articulo
-TODO
-
-## Mensaje
-TODO
+* Tabs
+* Floating button
+* Tags chips cloud
+* Results box
+* Users box
+* Icons collection
+* Numeric collection
+* Pagination
+* Input form
+* Add new item
