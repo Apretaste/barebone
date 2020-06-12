@@ -12,6 +12,10 @@
 	color: #ec407a;
 }
 
+.middle-center {
+	padding: 150px 40px 0px 40px;
+}
+
 /* TAGS */
 
 .chip .icon {
@@ -58,22 +62,22 @@
 
 /* PROFILE COLLECTION */
 
-.collection.profile .avatar{
-	min-height: 0px;
+.collection.profile .avatar {
+	min-height: 63px;
 }
 
-.collection.profile .secondary-content i{
+.collection.profile .secondary-content i {
 	font-size: 30px;
 	line-height: 1.1;
 }
 
-.collection.profile .second{
+.collection.profile .second {
 	right: 60px !important;
 }
 
 /* ONE LINE COLLECTION */
 
-.collection.one-line .avatar{
+.collection.one-line .avatar {
 	min-height: 0px;
 }
 
@@ -94,13 +98,13 @@
 
 /* CHAT */
 
-ul.chat{
+ul.chat {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
-ul.chat li{
+ul.chat li {
 	display:inline-block;
 	clear: both;
 	padding: 15px 20px;
@@ -108,43 +112,43 @@ ul.chat li{
 	margin-bottom: 3px;
 }
 
-ul.chat .date{
+ul.chat .date {
 	font-size: 10px;
 }
 
-.them{
+.them {
 	background: #eee;
 	float: left;
 }
 
-.them .date{
+.them .date {
 	color: #757575;
 }
 
-.mine{
+.mine {
 	float: right;
 	background: #4caf50;
 	color: #fff;
 }
 
-.mine .date{
+.mine .date {
 	color: #eeeeee;
 }
 
-.them + .mine{
+.them + .mine {
 	border-bottom-right-radius: 5px;
 }
 
-.mine + .mine{
+.mine + .mine {
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 }
 
-.mine + .them{
+.mine + .them {
 	border-bottom-left-radius: 5px;
 }
 
-.them + .them{
+.them + .them {
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
 }

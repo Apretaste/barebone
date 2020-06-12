@@ -158,6 +158,17 @@ class Service
 	}
 
 	/**
+	 * A possible screen when message is not found
+	 *
+	 * @param Request
+	 * @param Response
+	 */
+	public function _empty(Request $request, Response $response)
+	{
+		$response->setTemplate("empty.ejs");
+	}
+
+	/**
 	 * A possible screen for messages (possitive or negative)
 	 *
 	 * @param Request

@@ -17,6 +17,7 @@ A continuacion, se proponen varios "componentes" que seran agrupados en "interfa
 * Icon collection
 * Number collection
 * Pagination
+* Empty page message
 * Add new item
 
 # Interfaces

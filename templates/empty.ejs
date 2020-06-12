@@ -1,0 +1,38 @@
+<div class="row">
+	<div class="col s12">
+		<ul class="tabs tabs-fixed-width">
+			<li class="tab"><a href="#" class="active">Resultados</a></li>
+			<li class="tab"><a href="#" onclick="apretaste.send({command: 'BAREBONE USERS'})">Usuarios</a></li>
+			<li class="tab"><a href="#" onclick="apretaste.send({command: 'BAREBONE RULES'})">Reglas</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col s12 center">
+		<p class="middle-center grey-text">No encontramos ningun articulo que mostrar. Agregue uno o revise nuevamente en los proximos dias.</p>
+	</div>
+</div>
+
+<div class="bottom-space"></div>
+
+<!-- FLOATING BUTTON -->
+<div class="fixed-action-btn">
+	<a href="#newModal" class="btn-floating btn-large waves-effect waves-light modal-trigger">
+		<i class="large material-icons">add</i>
+	</a>
+</div>
+
+<!-- MODAL NEW ITEM -->
+<div id="newModal" class="modal bottom-sheet">
+	<div class="modal-content">
+		<div class="input-field">
+			<textarea id="message" class="materialize-textarea"></textarea>
+			<label for="message">Escriba su mensaje</label>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<a href="#!" class="modal-close waves-effect waves-light btn-flat">Cerrar</a>
+		<a onclick="apretaste.send({command:'BAREBONE MESSAGE'})" class="modal-close waves-effect waves-green btn-flat">Enviar</a>
+	</div>
+</div>
