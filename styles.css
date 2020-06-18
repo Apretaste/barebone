@@ -219,10 +219,6 @@ ul.chat .date {
 
 /* HOME SCREEN */
 
-.home {
-	background-image: linear-gradient(#d4ecd5, white);
-}
-
 .home img {
 	margin: 30% 0px 20px 0px;;
 	height: 150px;
