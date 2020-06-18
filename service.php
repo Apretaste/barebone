@@ -60,19 +60,19 @@ class Service
 	public function _chat(Request $request, Response $response)
 	{
 		$items = [
-			(Object) ['date' => '2020-06-30 15:23:45', 'owner' => 'them', 'text' => 'Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:23:45', 'owner' => 'them', 'text' => 'Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:23:45', 'owner' => 'mine', 'text' => 'Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:23:45', 'owner' => 'them', 'text' => 'Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:23:45', 'owner' => 'them', 'text' => 'Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:23:45', 'owner' => 'them', 'text' => 'Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:23:45', 'owner' => 'mine', 'text' => 'Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:23:45', 'owner' => 'mine', 'text' => 'Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:23:45', 'owner' => 'mine', 'text' => 'Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:23:45', 'owner' => 'them', 'text' => 'Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:23:45', 'username' => 'pepe', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:23:45', 'username' => 'juan', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:23:45', 'username' => 'salvi', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:23:45', 'username' => 'maria', 'gender' => 'F', 'text' => 'Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:23:45', 'username' => 'maria', 'gender' => 'F', 'text' => 'Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:23:45', 'username' => 'tomas', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:23:45', 'username' => 'salvi', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:23:45', 'username' => 'salvi', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:23:45', 'username' => 'salvi', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:23:45', 'username' => 'silvia', 'gender' => 'F', 'text' => 'Hola mundo cruel como anda todo el mio'],
 		];
 
-		$response->setTemplate("chat.ejs", ['items' => $items]);
+		$response->setTemplate("chat.ejs", ['username' => 'salvi', 'items' => $items]);
 	}
 
 	/**
@@ -132,18 +132,18 @@ class Service
 			(Object) ['username' => 'maria', 'gender' => 'F', 'avatar' => 'apretina', 'avatarColor' => 'morado'],
 		];
 
-		$response->setTemplate("users.ejs", ['users' => $users, 'page' => 1, 'pages' => 3]);
+		$response->setTemplate("users.ejs", ['users' => $users]);
 	}
 
 	/**
-	 * A possible screen to search
+	 * A possible screen to create any form
 	 *
 	 * @param Request
 	 * @param Response
 	 */
-	public function _search(Request $request, Response $response)
+	public function _form(Request $request, Response $response)
 	{
-		$response->setTemplate("search.ejs");
+		$response->setTemplate("form.ejs");
 	}
 
 	/**

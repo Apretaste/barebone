@@ -25,6 +25,13 @@
 	padding-right: 5px;
 }
 
+.chip.tiny {
+	height: 20px;
+	padding: 0 10px;
+	line-height: 20px;
+	font-size: x-small;
+}
+
 /* CARDS */
 
 .card .card-person {
@@ -212,6 +219,19 @@ ul.chat .date {
 
 /* HOME SCREEN */
 
-.spacing-up-down {
-	margin: 100px 0px 50px 0px;
+.home {
+	background-image: linear-gradient(#d4ecd5, white);
+}
+
+.home img {
+	margin: 30% 0px 20px 0px;;
+	height: 150px;
+}
+
+.home .tags, .menu {
+	margin-top: 50px;
+}
+
+#home-menu {
+	padding-top: 20px;
 }

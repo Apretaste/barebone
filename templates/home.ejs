@@ -1,28 +1,52 @@
-<div class="row">
+<div class="row home">
 	<div class="col s12 center-align">
-		<img class="spacing-up-down" src="{{APP_SERVICE_PATH}}/images/logo.png" alt="logo">
+		<img src="{{APP_SERVICE_PATH}}/images/logo.png" alt="logo">
 
 		<div class="input-field">
 			<input id="query" type="text"/>
 			<label for="query">¿Qué desea buscar?</label>
 		</div>
 
-		<p class="left-align">Un texto dando ejemplos de que buscar, si fuera necesario. Tambien puede omitirse.</p>
+		<div class="input-field">
+			<select id="option">
+				<option value="" selected>Todas</option>
+				<option value="opcion_1">Opción #1</option>
+				<option value="opcion_2">Opción #2</option>
+				<option value="opcion_3">Opción #3</option>
+			</select>
+			<label for="option">Escoja una opción</label>
+		</div>
 
-		<br><br>
+		<div class="tags">
+			<span class="chip"><i class="material-icons icon">wallpaper</i> Resultados</span></a>
+			<span class="chip"><i class="material-icons icon">spa</i> Noticias</span></a>
+			<span class="chip"><i class="material-icons icon">assignment_late</i> Reglas</span></a>
+			<span class="chip"><i class="material-icons icon">info</i> Mensaje</span></a>
+			<span class="chip"><i class="material-icons icon">person</i> Perfil</span></a>
+		</div>
 
-		<a href="#!" onclick="apretaste.send({'command':'BAREBONE SEARCH'})"><span class="chip"><i class="material-icons icon">search</i> Buscar</span></a>
-		<a href="#!" onclick="apretaste.send({'command':'BAREBONE RESULTS'})"><span class="chip"><i class="material-icons icon">wallpaper</i> Resultados</span></a>
-		<a href="#!" onclick="apretaste.send({'command':'BAREBONE USERS'})"><span class="chip"><i class="material-icons icon">people</i> Usuarios</span></a>
-		<a href="#!" onclick="apretaste.send({'command':'BAREBONE RULES'})"><span class="chip"><i class="material-icons icon">assignment_late</i> Reglas</span></a>
-		<a href="#!" onclick="apretaste.send({'command':'BAREBONE NEWS'})"><span class="chip"><i class="material-icons icon">spa</i> Noticias</span></a>
-		<a href="#!" onclick="apretaste.send({'command':'BAREBONE ARTICLE'})"><span class="chip"><i class="material-icons icon">remove_red_eye</i> Articulo</span></a>
-		<a href="#!" onclick="apretaste.send({'command':'BAREBONE PROFILE'})"><span class="chip"><i class="material-icons icon">person</i> Perfil</span></a>
-		<a href="#!" onclick="apretaste.send({'command':'BAREBONE CHAT'})"><span class="chip"><i class="material-icons icon">forum</i> Chat</span></a>
-		<a href="#!" onclick="apretaste.send({'command':'BAREBONE MESSAGE'})"><span class="chip"><i class="material-icons icon">info</i> Mensaje</span></a>
-		<a href="#!" onclick="apretaste.send({'command':'BAREBONE EMPTY'})"><span class="chip"><i class="material-icons icon">info_outline</i> Vacio</span></a>
+		<div class="menu">
+			<a class="btn btn-small grey lighten-2 black-text sidenav-trigger" data-target="home-menu" href="#!">
+				<i class="material-icons left">menu</i> Opciones
+			</a>
+		</div>
 	</div>
 </div>
+
+<!-- MENU -->
+<ul id="home-menu" class="sidenav">
+	<li><a href="#!" onclick="apretaste.send({'command':'BAREBONE FORM'})"><i class="material-icons icon">search</i> Formulario</a></li>
+	<li><a href="#!" onclick="apretaste.send({'command':'BAREBONE RESULTS'})"><i class="material-icons icon">wallpaper</i> Resultados</a></li>
+	<li><a href="#!" onclick="apretaste.send({'command':'BAREBONE USERS'})"><i class="material-icons icon">people</i> Usuarios</a></li>
+	<li><a href="#!" onclick="apretaste.send({'command':'BAREBONE RULES'})"><i class="material-icons icon">assignment_late</i> Reglas</a></li>
+	<li><a href="#!" onclick="apretaste.send({'command':'BAREBONE NEWS'})"><i class="material-icons icon">spa</i> Noticias</a></li>
+	<li><a href="#!" onclick="apretaste.send({'command':'BAREBONE ARTICLE'})"><i class="material-icons icon">remove_red_eye</i> Articulo</a></li>
+	<li><a href="#!" onclick="apretaste.send({'command':'BAREBONE PROFILE'})"><i class="material-icons icon">person</i> Perfil</a></li>
+	<li><a href="#!" onclick="apretaste.send({'command':'BAREBONE CHAT'})"><i class="material-icons icon">forum</i> Chat</a></li>
+	<li><div class="divider"></div></li>
+	<li><a href="#!" onclick="apretaste.send({'command':'BAREBONE MESSAGE'})"><i class="material-icons icon">info</i> Mensaje</a></li>
+	<li><a href="#!" onclick="apretaste.send({'command':'BAREBONE EMPTY'})"><i class="material-icons icon">info_outline</i> Vacio</a></li>
+</ul>
 
 <div class="bottom-space"></div>
 
