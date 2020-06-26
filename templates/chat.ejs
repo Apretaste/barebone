@@ -11,14 +11,13 @@
 
 		<ul class="chat">
 			<% items.forEach(function(item) { %>
-				<% var owner = item.username == username ? 'mine' : 'them'; %>
-				<li class="<%= owner %>">
-					<div class="date">
+				<li class="<%= item.position %>">
+					<div class="person-avatar circle" face="<%= item.avatar %>" color="<%= item.color %>" size="30"></div>
+					<div class="head">
 						<a href="#!" class="<%= item.gender %>">@<%= item.username %></a>
-						&middot;
-						<%= moment(item.date).format('DD/MM/YYYY h:mm:ss a') %>
+						<span class="date"><%= moment(item.date).format('MMM D, YYYY h:mm A') %></span>
 					</div>
-					<%= item.text %>
+					<span class="text"><%= item.text %></span>
 				</li>
 			<% }) %>
 		</ul>

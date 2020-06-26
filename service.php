@@ -60,19 +60,19 @@ class Service
 	public function _chat(Request $request, Response $response)
 	{
 		$items = [
-			(Object) ['date' => '2020-06-30 15:23:45', 'username' => 'pepe', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:23:45', 'username' => 'juan', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:23:45', 'username' => 'salvi', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:23:45', 'username' => 'maria', 'gender' => 'F', 'text' => 'Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:23:45', 'username' => 'maria', 'gender' => 'F', 'text' => 'Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:23:45', 'username' => 'tomas', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:23:45', 'username' => 'salvi', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:23:45', 'username' => 'salvi', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:23:45', 'username' => 'salvi', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:23:45', 'username' => 'silvia', 'gender' => 'F', 'text' => 'Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'pepe', 'avatar' => 'hombre', 'color' => 'rojo', 'position' => 'left', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'maria', 'avatar' => 'hippie', 'color' => 'amarillo', 'position' => 'left', 'gender' => 'F', 'text' => 'Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'pepe', 'avatar' => 'hombre', 'color' => 'rojo', 'position' => 'left', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda mundo cruel como anda todo el todo el mio'],
+			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'maria', 'avatar' => 'hippie', 'color' => 'amarillo', 'position' => 'left', 'gender' => 'F', 'text' => 'Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'salvipascual', 'avatar' => 'sensei', 'color' => 'verde', 'position' => 'right', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'salvipascual', 'avatar' => 'sensei', 'color' => 'verde', 'position' => 'right', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'pepe', 'avatar' => 'hombre', 'color' => 'rojo', 'position' => 'left', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'pepe', 'avatar' => 'hombre', 'color' => 'rojo', 'position' => 'left', 'gender' => 'M', 'text' => 'Hola mundo mundo cruel como anda todo el cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'pepe', 'avatar' => 'hombre', 'color' => 'rojo', 'position' => 'left', 'gender' => 'M', 'text' => 'Hola mundo cruel como mundo cruel como anda todo el anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'maria', 'avatar' => 'hippie', 'color' => 'amarillo', 'position' => 'left', 'gender' => 'F', 'text' => 'Hola mundo cruel como anda todo el mio'],
 		];
 
-		$response->setTemplate("chat.ejs", ['username' => 'salvi', 'items' => $items]);
+		$response->setTemplate("chat.ejs", ['items' => $items]);
 	}
 
 	/**
@@ -103,11 +103,32 @@ class Service
 	 */
 	public function _article(Request $request, Response $response)
 	{
+		$related = [
+			(Object) ['id' => 10, 'tag' => 'Cuba', 'title' => substr('Lorem ipsum dolor sit amet, consectetur adipisicing' , 0, 50) . '...'],
+			(Object) ['id' => 11, 'tag' => 'Emigración', 'title' => substr('Lorem ipsum dolor sit amet, consectetur adipisicing' , 0, 50) . '...'],
+			(Object) ['id' => 12, 'tag' => 'Aeronáutica', 'title' => substr('Lorem ipsum dolor sit amet, consectetur adipisicing' , 0, 50) . '...'],
+		];
+
+		$comments = [
+			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'pepe', 'avatar' => 'hombre', 'color' => 'rojo', 'position' => 'left', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'maria', 'avatar' => 'hippie', 'color' => 'amarillo', 'position' => 'left', 'gender' => 'F', 'text' => 'Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'pepe', 'avatar' => 'hombre', 'color' => 'rojo', 'position' => 'left', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda mundo cruel como anda todo el todo el mio'],
+			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'maria', 'avatar' => 'hippie', 'color' => 'amarillo', 'position' => 'left', 'gender' => 'F', 'text' => 'Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'salvipascual', 'avatar' => 'sensei', 'color' => 'verde', 'position' => 'right', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'salvipascual', 'avatar' => 'sensei', 'color' => 'verde', 'position' => 'right', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'pepe', 'avatar' => 'hombre', 'color' => 'rojo', 'position' => 'left', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'pepe', 'avatar' => 'hombre', 'color' => 'rojo', 'position' => 'left', 'gender' => 'M', 'text' => 'Hola mundo mundo cruel como anda todo el cruel como anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'pepe', 'avatar' => 'hombre', 'color' => 'rojo', 'position' => 'left', 'gender' => 'M', 'text' => 'Hola mundo cruel como mundo cruel como anda todo el anda todo el mio'],
+			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'maria', 'avatar' => 'hippie', 'color' => 'amarillo', 'position' => 'left', 'gender' => 'F', 'text' => 'Hola mundo cruel como anda todo el mio'],
+		];
+
 		$content = [
 			'title' => 'Una valiente jugada muy importante',
 			'image' => 'article.jpg',
 			'summary' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.',
 			'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+			'related' => $related,
+			'comments' => $comments,
 		];
 
 		$images = [__DIR__ . '/images/article.jpg'];

@@ -7,24 +7,51 @@
 	</div>
 </div>
 
+<div class="row">
+	<div class="col s12">
+		<div class="message danger">
+			<i class="fas fa-exclamation-triangle"></i>
+			<p>Necesitas llegar a nivel Topacio necesitas llegar a nivel Topacio</p>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col s12">
+		<div class="message notice">
+			<i class="fas fa-exclamation-triangle"></i>
+			<p>Necesitas llegar a nivel Topacio necesitas llegar a nivel Topacio</p>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col s12">
+		<div class="message success">
+			<i class="fas fa-exclamation-triangle"></i>
+			<p>Necesitas llegar a nivel Topacio necesitas llegar a nivel Topacio</p>
+		</div>
+	</div>
+</div>
 
 <div class="row">
 	<% items.forEach(function(item) { %>
 		<div class="col s12">
-			<div class="card">
+			<div class="card" onclick="apretaste.send({command:'BAREBONE ARTICLE'})">
 				<div class="card-image waves-effect waves-block waves-light">
 					<img src="{{APP_IMAGE_PATH}}<%= item.image %>">
 				</div>
 				<div class="card-content">
 					<span class="card-title grey-text text-darken-4"><%= item.title %></span>
-					<p class="blue-grey-text">
-						<%= item.author %>
-						&middot; 
-						<%= moment(item.date).format('DD/MM/YYYY h:mm:ss a') %></span>
-					</p>
-				</div>
-				<div class="card-action grey lighten-4">
-					<a class="green-text" href="#!" onclick="apretaste.send({command:'BAREBONE ARTICLE'})">Ver mas</a>
+
+					<span class="chip tiny grey lighten-1"><i class="far fa-user"></i> Salvi Pascual</span>
+					<span class="chip tiny grey lighten-1"><i class="far fa-newspaper"></i> Diario de Cuba</span>
+					<span class="chip tiny grey lighten-1"><i class="far fa-comments"></i> 23</span>
+					<span class="chip tiny grey lighten-1"><i class="far fa-calendar"></i> Ene 1, 2020 4:20 PM</span>
+
+					<span class="chip tiny">Cuba</span>
+					<span class="chip tiny">Emigración</span>
+					<span class="chip tiny">Aeronáutica</span>
 				</div>
 			</div>
 		</div>
