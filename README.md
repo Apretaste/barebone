@@ -7,12 +7,14 @@ A continuacion, se proponen varios "componentes" que seran agrupados en "interfa
 
 * Tabs
 * Tag
+* Tags cloud
 * Button
 * Floating button
 * Content box
 * User box
 * Profile box
 * Image box
+* Message box
 * Chat
 * Icon collection
 * Number collection

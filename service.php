@@ -157,6 +157,24 @@ class Service
 	}
 
 	/**
+	 * A cloud of tags
+	 *
+	 * @param Request
+	 * @param Response
+	 */
+	public function _tags(Request $request, Response $response)
+	{
+		$items = ['tomasito','andrecito','martin','pedro','tina','maria','hombre','artista','hippie','jefe','sensei','apretina','red','verde','amarillo','naranja','azul','morado'];
+
+		$tags = [];
+		foreach ($items as $tag) {
+			$tags[] = (Object) ['tag' => $tag, 'size' => rand(1, 10)];
+		}
+
+		$response->setTemplate("tags.ejs", ['tags' => $tags]);
+	}
+
+	/**
 	 * A possible screen to create any form
 	 *
 	 * @param Request
