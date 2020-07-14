@@ -5,7 +5,7 @@
 				<div class="person-avatar circle" face="apretina" color="rojo" size="45" online="1"></div>
 				<span class="title M">@maria</span>
 				<p>Maria Elvira</p>
-				<a href="#!" class="secondary-content green-text first" onclick="apretaste.back()"><i class="material-icons">arrow_back</i></a>
+				<a href="#!" class="secondary-content green-text first"><i class="material-icons">person_add</i></a>
 			</li>
 		</ul>
 
@@ -24,15 +24,6 @@
 	</div>
 </div>
 
-<div class="bottom-space"></div>
-
-<!-- FLOATING BUTTON -->
-<div class="fixed-action-btn">
-	<a href="#newModal" class="btn-floating btn-large waves-effect waves-light modal-trigger">
-		<i class="large material-icons">add</i>
-	</a>
-</div>
-
 <!-- MODAL NEW ITEM -->
 <div id="newModal" class="modal bottom-sheet">
 	<div class="modal-content">
@@ -45,4 +36,16 @@
 		<a href="#!" class="modal-close waves-effect waves-light btn-flat">Cerrar</a>
 		<a onclick="apretaste.send({command:'BAREBONE MESSAGE'})" class="modal-close waves-effect waves-green btn-flat">Enviar</a>
 	</div>
+</div>
+
+<div class="bottom-space"></div>
+
+<!-- FLOATING BUTTON -->
+<div class="fixed-action-btn">
+	<a class="btn-floating btn-large waves-effect waves-light grey second" href="#!" onclick="apretaste.back()">
+		<i class="material-icons">arrow_back</i>
+	</a>
+	<a href="#newModal" class="btn-floating btn-large waves-effect waves-light modal-trigger green">
+		<i class="large material-icons">add</i>
+	</a>
 </div>

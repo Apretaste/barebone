@@ -36,6 +36,13 @@
 	line-height: 20px;
 }
 
+.chip.clear {
+	color: rgba(0,0,0,0.87);
+	margin: 0px;
+	padding: 0px;
+	background-color: transparent;
+}
+
 /* TAGS CLOUD */
 
 .cloud {
@@ -344,4 +351,10 @@ ul.chat li {
 
 #home-menu {
 	padding-top: 20px;
+}
+
+/* FLOAT BUTTON */
+
+.btn-floating.second {
+	margin-right: -25px;
 }
