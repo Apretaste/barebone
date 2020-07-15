@@ -356,5 +356,8 @@ ul.chat li {
 /* FLOAT BUTTON */
 
 .btn-floating.second {
-	margin-right: -25px;
+	margin-right: -10px;
+	width: 45px;
+	height: 45px;
+	line-height: 58px;
 }
