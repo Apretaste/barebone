@@ -369,8 +369,8 @@ ul.chat li {
 }
 
 .btn-floating.third {
-	top: -44px;
-	right: -94px;
+	bottom: 45px;
+	left: 90px;
 	width: 45px;
 	height: 45px;
 	line-height: 58px;
