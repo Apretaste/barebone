@@ -27,6 +27,15 @@
 					<span class="card-title"><%= item.title %></span>
 					<p>Vence el <%= moment(item.deadline).format('D [de] MMMM') %></p>
 					<p class="blue-grey-text">Un subtitulo que por ahora esta hardcoded</p>
+
+					<% if(item.preview) { %>
+						<ul class="collection one-line preview" onclick="apretaste.send({command:'BAREBONE ARTICLE'})">
+							<li class="collection-item avatar">
+								<i class="fas fa-<%= item.preview.icon %> material-icons circle"></i>
+								<span class="title"><%= item.preview.text %></span>
+							</li>
+						</ul>
+					<% } %>
 				</div>
 				<div class="card-action grey lighten-4">
 					<a class="green-text" href="#!" onclick="apretaste.send({command:'BAREBONE ARTICLE'})">Ver mas</a>

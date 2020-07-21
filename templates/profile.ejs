@@ -31,9 +31,32 @@
 
 <div class="bottom-space"></div>
 
-<!-- BUTTON -->
+<!-- BUTTONS -->
 <div id="btn" class="fixed-action-btn">
-	<a class="btn-floating btn-large waves-effect waves-light green" href="#!" onclick="apretaste.back()">
+	<a class="btn-floating waves-effect waves-light grey second" href="#!" onclick="apretaste.back()">
 		<i class="material-icons">arrow_back</i>
 	</a>
+	<a class="btn-floating btn-large waves-effect waves-light modal-trigger green" href="#shareModal">
+		<i class="material-icons">share</i>
+	</a>
+</div>
+
+<!-- SHARE MODAL -->
+<div id="shareModal" class="modal">
+	<div class="modal-content">
+		<div class="input-field">
+			<textarea id="message" class="materialize-textarea"></textarea>
+			<label for="message">Escriba un texto para compartir</label>
+		</div>
+		<ul class="collection one-line preview">
+			<li class="collection-item avatar">
+				<i class="fas fa-user material-icons circle"></i>
+				<span class="title">Este es el perfil de @salvipascual</span>
+			</li>
+		</ul>
+	</div>
+	<div class="modal-footer">
+		<a href="#!" class="modal-close waves-effect waves-light btn-flat">Cerrar</a>
+		<a onclick="apretaste.send({command:'BAREBONE MESSAGE'})" class="modal-close waves-effect waves-green green-text btn-flat">Enviar</a>
+	</div>
 </div>

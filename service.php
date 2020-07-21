@@ -24,11 +24,16 @@ class Service
 	 */
 	public function _results(Request $request, Response $response)
 	{
+		$preview = (Object) [
+			'icon' => 'camera-retro', // font awesome icon
+			'text' => 'Tírate una foto, muéstrame como luce. ¿Qué crees?' // max 50 characters
+		];
+
 		$items = [
-			(Object) ['title' => 'Primer titulo', 'deadline' => '2020-06-30 18:20:15'],
-			(Object) ['title' => 'Segundo titulo', 'deadline' => '2020-06-30 18:20:15'],
-			(Object) ['title' => 'Tercer titulo', 'deadline' => '2020-06-30 18:20:15'],
-			(Object) ['title' => 'Cuarto titulo', 'deadline' => '2020-06-30 18:20:15'],
+			(Object) ['title' => 'Primer titulo', 'deadline' => '2020-06-30 18:20:15', 'preview' => false],
+			(Object) ['title' => 'Segundo titulo', 'deadline' => '2020-06-30 18:20:15', 'preview' => $preview],
+			(Object) ['title' => 'Tercer titulo', 'deadline' => '2020-06-30 18:20:15', 'preview' => false],
+			(Object) ['title' => 'Cuarto titulo', 'deadline' => '2020-06-30 18:20:15', 'preview' => false],
 		];
 
 		$response->setTemplate("results.ejs", ['items' => $items, 'page' => 1, 'pages' => 3]);
