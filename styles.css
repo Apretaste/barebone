@@ -1,8 +1,10 @@
 /* GLOBAL */
 
-.bottom-space {
-	margin-bottom: 80px;
+.middle-center {
+	padding: 150px 40px 0px 40px;
 }
+
+/* GENDER COLORS */
 
 .M {
 	color: #5c6bc0;
@@ -10,10 +12,6 @@
 
 .F {
 	color: #ec407a;
-}
-
-.middle-center {
-	padding: 150px 40px 0px 40px;
 }
 
 /* TAGS */
@@ -344,22 +342,11 @@ ul.chat li {
 	margin-bottom: 0px;
 }
 
-/* HOME SCREEN */
-
-.home img {
-	margin: 30% 0px 20px 0px;;
-	height: 150px;
-}
-
-.home .tags, .menu {
-	margin-top: 50px;
-}
-
-#home-menu {
-	padding-top: 20px;
-}
-
 /* FLOAT BUTTON */
+
+.bottom-space {
+	margin-bottom: 80px;
+}
 
 .btn-floating.second {
 	margin-right: -10px;
@@ -376,3 +363,17 @@ ul.chat li {
 	line-height: 58px;
 }
 
+/* HOME SCREEN */
+
+.home .main-icon {
+	margin: 20% 0px 20px 0px;;
+	height: 150px;
+}
+
+.home .tags, .menu {
+	margin-top: 50px;
+}
+
+#home-menu {
+	padding-top: 20px;
+}
