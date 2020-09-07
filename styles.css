@@ -34,11 +34,20 @@
 	line-height: 20px;
 }
 
+.chip.medium {
+	height: 20px;
+	line-height: 1.5;
+}
+
 .chip.clear {
 	color: rgba(0,0,0,0.87);
 	margin: 0px;
 	padding: 0px;
 	background-color: transparent;
+}
+
+.chip.spacing {
+	margin-right: 5px;
 }
 
 /* TAGS CLOUD */
@@ -166,6 +175,7 @@
 
 .collection.preview {
 	margin: 20px 0px 0px 0px;
+	min-height: 65px;
 }
 
 /* ONE LINE COLLECTION */
@@ -205,10 +215,6 @@
 	width: calc(100% - 2.5rem) !important;
 }
 
-.input-field label {
-	
-}
-
 .search-field label, .search-field input{
 	font-size: 18px;
 	padding-left: 10px !important;
@@ -222,28 +228,28 @@
 /* ADD BORDER TO A FIELD */
 
 .outline {
-    border: 1px solid #57b23b;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    box-shadow: none;
-    margin: 0.75rem !important;
-    width: calc(100% - 1.5rem);
+	border: 1px solid #57b23b;
+	border-radius: .25rem;
+	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+	box-shadow: none;
+	margin: 0.75rem !important;
+	width: calc(100% - 1.5rem);
 }
 
 .outline:focus {
-    outline: 0 !important;
-    box-shadow: 0 0 2px .1rem rgb(89, 176, 60) !important;
+	outline: 0 !important;
+	box-shadow: 0 0 2px .1rem rgb(89, 176, 60) !important;
 }
 
 .outline input, .outline input:focus {
-    border-bottom: none !important;
-    box-shadow: none !important;
+	border-bottom: none !important;
+	box-shadow: none !important;
 }
 
 .outline > label:not(.label-icon).active {
-    transform: translateY(-10px) scale(0.8);
-    padding: 0 8px;
-    background: white;
+	transform: translateY(-10px) scale(0.8);
+	padding: 0 8px;
+	background: white;
 }
 
 /* NEWS */
