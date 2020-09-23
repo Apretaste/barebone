@@ -369,6 +369,12 @@ ul.chat li {
 	line-height: 58px;
 }
 
+/* MODAL */
+
+.modal.fullscreen {
+	max-height: 100% !important;
+}
+
 /* HOME SCREEN */
 
 .home .main-icon {
