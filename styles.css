@@ -314,6 +314,22 @@ ul.chat li {
 	font-size: x-small;
 }
 
+.chat .actions {
+	margin-bottom: -5px;
+}
+
+.chat .actions .chip {
+	margin-right: 30px;
+}
+
+.chat .left .actions .chip {
+	color: #546e7a;
+}
+
+.chat .right .actions .chip {
+	color: #eceff1;
+}
+
 /* MESSAGES */
 
 .message {
