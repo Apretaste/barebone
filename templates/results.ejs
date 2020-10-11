@@ -70,14 +70,28 @@
 </div>
 
 <!-- MODAL NEW ITEM -->
-<div id="newModal" class="modal bottom-sheet">
+<div id="newModal" class="modal bottom-sheet fullscreen">
 	<div class="modal-content">
 		<div class="input-field">
-			<textarea id="message" class="materialize-textarea"></textarea>
-			<label for="message">Escriba su mensaje</label>
+			<textarea id="message" class="materialize-textarea" oninput="remainder()"></textarea>
+			<label for="message">Escriba su mensaje (<span id="remainder">0</span>/200)</label>
+		</div>
+		<div class="input-tags">
+			<p class="blue-grey-text">Escoja sus temas</p>
+			<span class="chip tiny"><i class="fas fa-hashtag"></i> apretaste</span>
+			<span class="chip tiny"><i class="fas fa-hashtag"></i> covadonga</span>
+			<span class="chip tiny"><i class="fas fa-hashtag"></i> xxx</span>
+			<span class="chip tiny"><i class="fas fa-hashtag"></i> apretin</span>
+			<span class="chip tiny"><i class="fas fa-hashtag"></i> OpinoAP</span>
+			<span class="chip tiny"><i class="fas fa-hashtag"></i> amistad</span>
+			<span class="chip tiny"><i class="fas fa-hashtag"></i> citas</span>
+			<span class="chip tiny"><i class="fas fa-hashtag"></i> pareajas</span>
+			<span class="chip tiny"><i class="fas fa-hashtag"></i> arte</span>
+			<span class="chip tiny"><i class="fas fa-hashtag"></i> joyeria</span>
 		</div>
 	</div>
 	<div class="modal-footer">
+		<a href="#!" class="waves-effect waves-light btn-flat left"><i class="fas fa-image"></i></a>
 		<a href="#!" class="modal-close waves-effect waves-light btn-flat">Cerrar</a>
 		<a onclick="apretaste.send({command:'BAREBONE MESSAGE'})" class="modal-close waves-effect green-text btn-flat">Enviar</a>
 	</div>
