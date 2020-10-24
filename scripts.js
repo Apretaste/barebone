@@ -1,24 +1,27 @@
 $(document).ready(function() {
+	// start components
 	$('.tabs').tabs();
 	$('.modal').modal();
 	$('select').formSelect();
 	$('.sidenav').sidenav();
+
+	// set reminder function
+	$('.remainder').on('input', function(){
+		// get values
+		var message = $(this).val().trim();
+		var maxlength = $(this).attr('maxlength');
+		var counter = $("label[for='" + $(this).attr('id') + "'] span");
+
+		// calculate the reminder
+		var remainder = (message.length <= maxlength) ? (maxlength - message.length) : 0;
+
+		// restrict message to maxlength
+		if (remainder <= 0) {
+			message = message.substring(0, maxlength);
+			$(this).val(message);
+		}
+
+		// update the counter with the remainder amount
+		counter.html(message.length);
+	})
 });
-
-// count remaining characteres
-//
-function remainder (size=200) {
-	// get message and remainder amount
-	var message = $('#message').val().trim();
-	var remainder = (message.length <= size) ? (size - message.length) : 0;
-
-	// restrict message size
-	if (remainder <= 0) {
-		message = message.substring(0, size);
-		$('#message').val(message);
-	}
-
-	// update remainder amount
-	$('#remainder').html(message.length);
-}
-
