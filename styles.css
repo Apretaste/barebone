@@ -50,6 +50,12 @@
 	margin-right: 5px;
 }
 
+/* TAGS CHECKS */
+
+.checks .check.active {
+	background-color: #81c784;
+}
+
 /* TAGS CLOUD */
 
 .cloud {

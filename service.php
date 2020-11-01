@@ -227,4 +227,15 @@ class Service
 			'btnLink' => 'BAREBONE',
 			'btnCaption' => 'Ver otros']);
 	}
+
+	/**
+	 * Show a list of check tags
+	 *
+	 * @param Request
+	 * @param Response
+	 */
+	public function _checks(Request $request, Response $response)
+	{
+		$response->setTemplate("checks.ejs");
+	}
 }

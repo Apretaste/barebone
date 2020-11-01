@@ -1,0 +1,31 @@
+<div class="row">
+	<div class="col s12">
+		<h1>Escoger</h1>
+		<p>Escoja de uno a tres elementos de la lista a continuación.</p>
+
+		<div class="checks">
+			<span value="mago" class="check chip spacing"><i class="fas fa-hat-wizard"></i> Mago</span>
+			<span value="mascara" class="check chip spacing active"><i class="fas fa-mask"></i> Máscara</span>
+			<span value="tenis" class="check chip spacing"><i class="fas fa-table-tennis"></i> Tenis</span>
+			<span value="bolos" class="check chip spacing"><i class="fas fa-bowling-ball"></i> Bolos</span>
+			<span value="arbol" class="check chip spacing"><i class="fas fa-tree"></i> Árbol</span>
+			<span value="cuervo" class="check chip spacing"><i class="fas fa-crow"></i> Cuervo</span>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col s12">
+		<p id="results"></p>
+		<a class="waves-effect waves-light green btn" onclick="$('#results').html($('.checks').value().join(','))">Get values</a>
+	</div>
+</div>
+
+<div class="bottom-space"></div>
+
+<!-- BUTTON -->
+<div id="btn" class="fixed-action-btn">
+	<a class="btn-floating btn-large waves-effect waves-light green" href="#!" onclick="apretaste.back()">
+		<i class="material-icons">arrow_back</i>
+	</a>
+</div>

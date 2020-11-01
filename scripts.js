@@ -1,11 +1,15 @@
 $(document).ready(function() {
-	// start components
+	//
+	// start basic components
+	//
 	$('.tabs').tabs();
 	$('.modal').modal();
 	$('select').formSelect();
 	$('.sidenav').sidenav();
 
-	// set reminder function
+	//
+	// start reminder component
+	//
 	$('.remainder').on('input', function(){
 		// get values
 		var message = $(this).val().trim();
@@ -24,4 +28,25 @@ $(document).ready(function() {
 		// update the counter with the remainder amount
 		counter.html(message.length);
 	})
+
+	//
+	// start check component
+	//
+
+	// checks/uncheck components
+	$('.checks .check').click(function() {
+		$(this).toggleClass('active');
+	})
+
+	// get values of active "checks" components
+	$.fn.value = function() {
+		var values = [];
+		$(this).find('.check').each(function(i, e){
+			if($(e).hasClass('active')) {
+				values.push($(e).attr('value'));
+			}
+		})
+
+		return values;
+	}
 });
