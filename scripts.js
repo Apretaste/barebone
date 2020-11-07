@@ -35,8 +35,20 @@ $(document).ready(function() {
 
 	// checks/uncheck components
 	$('.checks .check').click(function() {
+		// get active and limit
+		var limit = $(this).parent().attr('limit');
+		var count = $(this).parent().find('.check.active').length;
+		var isActive = $(this).hasClass('active');
+
+		// jump checks if only one element allowed
+		if(limit == 1) $('.checks .check').removeClass('active');
+
+		// do not go over the limit for multiple elements
+		else if(limit != undefined && limit <= count && !isActive) return false;
+
+		// make the check active/inactive
 		$(this).toggleClass('active');
-	})
+	});
 
 	// get values of active "checks" components
 	$.fn.value = function() {
@@ -46,7 +58,6 @@ $(document).ready(function() {
 				values.push($(e).attr('value'));
 			}
 		})
-
 		return values;
-	}
+	};
 });
