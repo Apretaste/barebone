@@ -336,6 +336,11 @@ ul.chat li {
 	color: #eceff1;
 }
 
+.chat .text {
+	overflow: hidden;
+	display: block;
+}
+
 /* MESSAGES */
 
 .message {
