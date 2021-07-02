@@ -1,241 +1,631 @@
 <?php
 
+use Apretaste\Alert;
 use Apretaste\Request;
 use Apretaste\Response;
+use Apretaste\Database;
 
 class Service
 {
 	/**
-	 * A possible home screen
+	 * A home screen
 	 *
-	 * @param Request
-	 * @param Response
+	 * @param Request $request
+	 * @param Response $response
+	 * @throws Alert
+	 * @author salvipascual
 	 */
 	public function _main(Request $request, Response $response)
 	{
-		$response->setTemplate("home.ejs");
+		$content = [
+			"runTutorial" => false,
+			"username" => $request->person->username
+		];
+
+		// create response
+		$response->setCache();
+		$response->setComponent('Main', $content);
 	}
 
 	/**
-	 * A possible list of results
+	 * A list screen
 	 *
-	 * @param Request
-	 * @param Response
+	 * @param Request $request
+	 * @param Response $response
+	 * @throws Alert
+	 * @author salvipascual
 	 */
-	public function _results(Request $request, Response $response)
+	public function _listas(Request $request, Response $response)
 	{
-		$preview = (Object) [
-			'icon' => 'camera-retro', // font awesome icon
-			'text' => 'Tírate una foto, muéstrame como luce. ¿Qué crees?' // max 50 characters
+		// create content array
+		$content = [
+			"list" => array(
+				array(
+					"icon" => "fas fa-brain",
+					"title" => "A sassy title",
+					"text" => "Secondarely, a nice text to show, that cannot be larger of certain number of chars, because it wont let the text go to a third line",
+					"actions" => array(
+						array(
+							"icon" => "fas fa-user",
+							"caption" => "Visitar perfil",
+							"ontap" => "fireExampleEvent"
+						),
+						array(
+							"icon" => "fas fa-trash",
+							"caption" => "Eliminar",
+							"ontap" => "fireExampleEvent"
+						)
+					)
+				),
+				array(
+					"icon" => "fas fa-ban",
+					"title" => "There is no action here",
+					"text" => "Much ado about nothing",
+					"ontap" => "fireExampleEvent"
+				),
+				array(
+					"icon" => "fas fa-menorah",
+					"title" => "Just the title, how cool!",
+					"ontap" => "fireExampleEvent",
+					"actions" => array(
+						array(
+							"icon" => "fas fa-trash",
+							"caption" => "Eliminar",
+							"ontap" => "fireExampleEvent"
+						)
+					)
+				),
+				array(
+					"icon" => "fas fa-ankh",
+					"text" => "Secondarely, a nice text to show, that cannot be larger of certain number of chars, because it wont let the text go to a third line",
+					"actions" => array(
+						array(
+							"icon" => "fas fa-play",
+							"caption" => "Iniciar audio",
+							"ontap" => "fireExampleEvent"
+						),
+						array(
+							"icon" => "fas fa-trash",
+							"caption" => "Eliminar",
+							"ontap" => "fireExampleEvent"
+						)
+					)
+				)
+			),
+			"people" => array(
+				array(
+					"username" => "salvipascual",
+					"gender" => "M",
+					"text" => "Secondarely, a nice text to show, that cannot be larger of certain number of chars, because it wont let the text go to a third line",
+					"avatar" => array(
+						"picture" => "/images/avatars/salvipascual.jpg",
+						"face" => "nerd",
+						"color" => "naranja",
+						"online" => true,
+						"influencer" => true
+					),
+					"actions" => array(
+						array(
+							"icon" => "fas fa-user",
+							"caption" => "Visitar perfil",
+							"ontap" => "fireExampleEvent"
+						)
+					)
+				),
+				array(
+					"username" => "refageist",
+					"gender" => "M",
+					"avatar" => array(
+						"face" => "hombre",
+						"color" => "amarillo",
+						"online" => true,
+						"influencer" => true
+					),
+					"chips" => array(
+						array(
+							"icon" => "fas fa-bolt",
+							"text" => "45,678",
+							"clear" => true
+						),
+						array(
+							"icon" => "fas fa-users",
+							"text" => "123",
+							"clear" => true
+						)
+					),
+					"actions" => array(
+						array(
+							"icon" => "fas fa-user",
+							"caption" => "Visitar perfil",
+							"ontap" => "fireExampleEvent"
+						)
+					)
+				),
+				array(
+					"username" => "juanita",
+					"gender" => "F",
+					"text" => "Trabajadora social",
+					"avatar" => array(
+						"face" => "chica",
+						"color" => "rojo",
+						"online" => false,
+						"influencer" => false
+					),
+					"actions" => array(
+						array(
+							"icon" => "fas fa-user",
+							"caption" => "Visitar perfil",
+							"ontap" => "fireExampleEvent"
+						),
+						array(
+							"icon" => "fas fa-trash",
+							"caption" => "Eliminar",
+							"ontap" => "fireExampleEvent"
+						)
+					)
+				)
+			)
 		];
 
-		$items = [
-			(Object) ['title' => 'Primer titulo', 'deadline' => '2020-06-30 18:20:15', 'preview' => false],
-			(Object) ['title' => 'Segundo titulo', 'deadline' => '2020-06-30 18:20:15', 'preview' => $preview],
-			(Object) ['title' => 'Tercer titulo', 'deadline' => '2020-06-30 18:20:15', 'preview' => false],
-			(Object) ['title' => 'Cuarto titulo', 'deadline' => '2020-06-30 18:20:15', 'preview' => false],
-		];
-
-		$response->setTemplate("results.ejs", ['items' => $items, 'page' => 1, 'pages' => 3]);
+		// create response
+		$response->setCache();
+		$response->setComponent('Listas', $content);
 	}
 
 	/**
-	 * A possible solution for user profile
+	 * A chat screen
 	 *
-	 * @param Request
-	 * @param Response
-	 */
-	public function _profile(Request $request, Response $response)
-	{
-		$items = [
-			(Object) ['title' => '+1 305 457 1656', 'subtitle' => 'Numero de telefono', 'icon' => 'local_phone'],
-			(Object) ['title' => 'salvi@apretaste.org', 'subtitle' => 'Correo electronico', 'icon' => 'email'],
-			(Object) ['title' => 'Estados Unidos', 'subtitle' => 'Pais de residencia', 'icon' => 'flag'],
-		];
-
-		$response->setTemplate("profile.ejs", ['items' => $items]);
-	}
-
-	/**
-	 * A possible solution for chatting
-	 *
-	 * @param Request
-	 * @param Response
+	 * @param Request $request
+	 * @param Response $response
+	 * @throws Alert
+	 * @author salvipascual
 	 */
 	public function _chat(Request $request, Response $response)
 	{
-		$items = [
-			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'pepe', 'avatar' => 'hombre', 'color' => 'rojo', 'position' => 'left', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'maria', 'avatar' => 'hippie', 'color' => 'amarillo', 'position' => 'left', 'gender' => 'F', 'text' => 'Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'pepe', 'avatar' => 'hombre', 'color' => 'rojo', 'position' => 'left', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda mundo cruel como anda todo el todo el mio'],
-			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'maria', 'avatar' => 'hippie', 'color' => 'amarillo', 'position' => 'left', 'gender' => 'F', 'text' => 'Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'salvipascual', 'avatar' => 'sensei', 'color' => 'verde', 'position' => 'right', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'salvipascual', 'avatar' => 'sensei', 'color' => 'verde', 'position' => 'right', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'pepe', 'avatar' => 'hombre', 'color' => 'rojo', 'position' => 'left', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'pepe', 'avatar' => 'hombre', 'color' => 'rojo', 'position' => 'left', 'gender' => 'M', 'text' => 'Hola mundo mundo cruel como anda todo el cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'pepe', 'avatar' => 'hombre', 'color' => 'rojo', 'position' => 'left', 'gender' => 'M', 'text' => 'Hola mundo cruel como mundo cruel como anda todo el anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'maria', 'avatar' => 'hippie', 'color' => 'amarillo', 'position' => 'left', 'gender' => 'F', 'text' => 'Hola mundo cruel como anda todo el mio'],
-		];
-
-		$response->setTemplate("chat.ejs", ['items' => $items]);
-	}
-
-	/**
-	 * A possible view to a news feed
-	 *
-	 * @param Request
-	 * @param Response
-	 */
-	public function _news(Request $request, Response $response)
-	{
-		$items = [
-			(Object) ['title' => 'Primer titulo un poco largo hablando del tema', 'author' => 'Salvi Pascual', 'image' => 'article.jpg', 'date' => '2020-06-30 18:20:15'],
-			(Object) ['title' => 'Segundo titulo un poco largo hablando del tema', 'author' => 'Salvi Pascual', 'image' => 'article.jpg', 'date' => '2020-06-30 18:20:15'],
-			(Object) ['title' => 'Tercer titulo un poco largo hablando del tema', 'author' => 'Salvi Pascual', 'image' => 'article.jpg', 'date' => '2020-06-30 18:20:15'],
-			(Object) ['title' => 'Cuarto titulo un poco largo hablando del tema', 'author' => 'Salvi Pascual', 'image' => 'article.jpg', 'date' => '2020-06-30 18:20:15'],
-		];
-
-		$images = [__DIR__ . '/images/article.jpg'];
-
-		$response->setTemplate("news.ejs", ['items' => $items], $images);
-	}
-
-	/**
-	 * A possible view to open an article
-	 *
-	 * @param Request
-	 * @param Response
-	 */
-	public function _article(Request $request, Response $response)
-	{
-		$related = [
-			(Object) ['id' => 10, 'tag' => 'Cuba', 'title' => substr('Lorem ipsum dolor sit amet, consectetur adipisicing' , 0, 50) . '...'],
-			(Object) ['id' => 11, 'tag' => 'Emigración', 'title' => substr('Lorem ipsum dolor sit amet, consectetur adipisicing' , 0, 50) . '...'],
-			(Object) ['id' => 12, 'tag' => 'Aeronáutica', 'title' => substr('Lorem ipsum dolor sit amet, consectetur adipisicing' , 0, 50) . '...'],
-		];
-
-		$comments = [
-			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'pepe', 'avatar' => 'hombre', 'color' => 'rojo', 'position' => 'left', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'maria', 'avatar' => 'hippie', 'color' => 'amarillo', 'position' => 'left', 'gender' => 'F', 'text' => 'Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'pepe', 'avatar' => 'hombre', 'color' => 'rojo', 'position' => 'left', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda mundo cruel como anda todo el todo el mio'],
-			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'maria', 'avatar' => 'hippie', 'color' => 'amarillo', 'position' => 'left', 'gender' => 'F', 'text' => 'Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'salvipascual', 'avatar' => 'sensei', 'color' => 'verde', 'position' => 'right', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'salvipascual', 'avatar' => 'sensei', 'color' => 'verde', 'position' => 'right', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'pepe', 'avatar' => 'hombre', 'color' => 'rojo', 'position' => 'left', 'gender' => 'M', 'text' => 'Hola mundo cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'pepe', 'avatar' => 'hombre', 'color' => 'rojo', 'position' => 'left', 'gender' => 'M', 'text' => 'Hola mundo mundo cruel como anda todo el cruel como anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'pepe', 'avatar' => 'hombre', 'color' => 'rojo', 'position' => 'left', 'gender' => 'M', 'text' => 'Hola mundo cruel como mundo cruel como anda todo el anda todo el mio'],
-			(Object) ['date' => '2020-06-30 15:25:50', 'username' => 'maria', 'avatar' => 'hippie', 'color' => 'amarillo', 'position' => 'left', 'gender' => 'F', 'text' => 'Hola mundo cruel como anda todo el mio'],
-		];
-
+		// create content array
 		$content = [
-			'title' => 'Una valiente jugada muy importante',
-			'image' => 'article.jpg',
-			'summary' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.',
-			'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-			'related' => $related,
-			'comments' => $comments,
+			"person" => [
+				array(
+					"username" => "salvipascual",
+					"gender" => "M",
+					"text" => "Secondarely, a nice text to show, that cannot be larger of certain number of chars, because it wont let the text go to a third line",
+					"avatar" => array(
+						"picture" => "/images/avatars/salvipascual.jpg",
+						"face" => "nerd",
+						"color" => "naranja",
+						"online" => true,
+						"influencer" => true
+					),
+					"actions" => array(
+						array(
+							"icon" => "fas fa-user",
+							"caption" => "Visitar perfil",
+							"ontap" => "fireExampleEvent"
+						)
+					)
+				),
+			],
+			"chat" => [
+				array(
+					"date" => "2020-06-30 15:25:50",
+					"username" => "pepe",
+					"gender" => "M",
+					"avatar" => array(
+						"face" => "hombre",
+						"color" => "rojo",
+						"online" => false,
+						"influencer" => false
+					),
+					"position" => "left",
+					"text" => "Hola mundo cruel como anda todo el mio",
+					"actions" => array(
+						array(
+							"icon" => "fas fa-thumbs-up",
+							"text" => 10,
+							"ontap" => "fireExampleEvent"
+						),
+						array(
+							"icon" => "fas fa-thumbs-down",
+							"text" => 2,
+							"ontap" => "fireExampleEvent"
+						),
+						array(
+							"icon" => "fas fa-share-alt",
+							"ontap" => "fireExampleEvent"
+						)
+					)
+				),
+				array(
+					"date" => "2020-06-30 15:25:50",
+					"username" => "maria",
+					"gender" => "F",
+					"avatar" => array(
+						"face" => "hippie",
+						"color" => "amarillo",
+						"online" => true,
+						"influencer" => true
+					),
+					"position" => "left",
+					"text" => "Hola mundo cruel como anda todo el mio",
+					"actions" => array(
+						array(
+							"icon" => "fas fa-thumbs-up",
+							"text" => 10,
+							"ontap" => "fireExampleEvent"
+						),
+						array(
+							"icon" => "fas fa-thumbs-down",
+							"text" => 2,
+							"ontap" => "fireExampleEvent"
+						),
+						array(
+							"icon" => "fas fa-share-alt",
+							"ontap" => "fireExampleEvent"
+						)
+					)
+				),
+				array(
+					"date" => "2020-06-30 15:25:50",
+					"username" => "pepe",
+					"gender" => "M",
+					"avatar" => array(
+						"face" => "hombre",
+						"color" => "rojo",
+						"online" => false,
+						"influencer" => false
+					),
+					"position" => "left",
+					"text" => "Hola mundo cruel como anda mundo cruel como anda todo el todo el mio",
+					"actions" => array(
+						array(
+							"icon" => "fas fa-thumbs-up",
+							"text" => 10,
+							"ontap" => "fireExampleEvent"
+						),
+						array(
+							"icon" => "fas fa-thumbs-down",
+							"text" => 2,
+							"ontap" => "fireExampleEvent"
+						),
+						array(
+							"icon" => "fas fa-share-alt",
+							"ontap" => "fireExampleEvent"
+						)
+					)
+				),
+				array(
+					"date" => "2020-06-30 15:25:50",
+					"username" => "maria",
+					"gender" => "F",
+					"avatar" => array(
+						"face" => "hippie",
+						"color" => "amarillo",
+						"online" => true,
+						"influencer" => true
+					),
+					"position" => "left",
+					"text" => "Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio",
+					"actions" => array(
+						array(
+							"icon" => "fas fa-thumbs-up",
+							"text" => 10,
+							"ontap" => "fireExampleEvent"
+						),
+						array(
+							"icon" => "fas fa-thumbs-down",
+							"text" => 2,
+							"ontap" => "fireExampleEvent"
+						),
+						array(
+							"icon" => "fas fa-share-alt",
+							"ontap" => "fireExampleEvent"
+						)
+					)
+				),
+				array(
+					"date" => "2020-06-30 15:25:50",
+					"username" => "salvipascual",
+					"gender" => "M",
+					"avatar" => array(
+						"face" => "sensei",
+						"color" => "verde",
+						"online" => true,
+						"influencer" => false
+					),
+					"position" => "right",
+					"text" => "Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio"
+				),
+				array(
+					"date" => "2020-06-30 15:25:50",
+					"username" => "salvipascual",
+					"gender" => "M",
+					"avatar" => array(
+						"face" => "sensei",
+						"color" => "verde",
+						"online" => true,
+						"influencer" => false
+					),
+					"position" => "right",
+					"text" => "Hola mundo cruel como anda todo el mio Hola mundo cruel como anda todo el mio"
+				),
+				array(
+					"date" => "2020-06-30 15:25:50",
+					"username" => "pepe",
+					"gender" => "M",
+					"avatar" => array(
+						"face" => "hombre",
+						"color" => "rojo",
+						"online" => false,
+						"influencer" => false
+					),
+					"position" => "left",
+					"text" => "Hola mundo cruel como anda todo el mio",
+					"actions" => array(
+						array(
+							"icon" => "fas fa-trash",
+							"ontap" => "fireExampleEvent"
+						)
+					)
+				),
+				array(
+					"date" => "2020-06-30 15:25:50",
+					"username" => "pepe",
+					"gender" => "M",
+					"avatar" => array(
+						"face" => "hombre",
+						"color" => "rojo",
+						"online" => false,
+						"influencer" => false
+					),
+					"position" => "left",
+					"text" => "Hola mundo mundo cruel como anda todo el cruel como anda todo el mio",
+					"actions" => array(
+						array(
+							"icon" => "fas fa-thumbs-up",
+							"text" => 10,
+							"ontap" => "fireExampleEvent"
+						),
+						array(
+							"icon" => "fas fa-thumbs-down",
+							"text" => 2,
+							"ontap" => "fireExampleEvent"
+						),
+						array(
+							"icon" => "fas fa-share-alt",
+							"ontap" => "fireExampleEvent"
+						)
+					)
+				),
+				array(
+					"date" => "2020-06-30 15:25:50",
+					"username" => "pepe",
+					"gender" => "M",
+					"avatar" => array(
+						"face" => "hombre",
+						"color" => "rojo",
+						"online" => false,
+						"influencer" => false
+					),
+					"position" => "left",
+					"text" => "Hola mundo cruel como mundo cruel como anda todo el anda todo el mio",
+					"actions" => array(
+						array(
+							"icon" => "fas fa-thumbs-up",
+							"text" => 10,
+							"ontap" => "fireExampleEvent"
+						),
+						array(
+							"icon" => "fas fa-thumbs-down",
+							"text" => 2,
+							"ontap" => "fireExampleEvent"
+						),
+						array(
+							"icon" => "fas fa-share-alt",
+							"ontap" => "fireExampleEvent"
+						)
+					)
+				),
+				array(
+					"date" => "2020-06-30 15:25:50",
+					"username" => "maria",
+					"gender" => "F",
+					"avatar" => array(
+						"face" => "hippie",
+						"color" => "amarillo",
+						"online" => true,
+						"influencer" => true
+					),
+					"position" => "left",
+					"text" => "Hola mundo cruel como anda todo el mio",
+					"actions" => array(
+						array(
+							"icon" => "fas fa-thumbs-up",
+							"text" => 10,
+							"ontap" => "fireExampleEvent"
+						),
+						array(
+							"icon" => "fas fa-thumbs-down",
+							"text" => 2,
+							"ontap" => "fireExampleEvent"
+						),
+						array(
+							"icon" => "fas fa-share-alt",
+							"ontap" => "fireExampleEvent"
+						)
+					)
+				)
+			]
 		];
 
-		$images = [__DIR__ . '/images/article.jpg'];
-
-		$response->setTemplate("article.ejs", $content, $images);
+		// create response
+		$response->setCache();
+		$response->setComponent('Chat', $content);
 	}
 
 	/**
-	 * A possible screen to list users
+	 * A forms screen
 	 *
-	 * @param Request
-	 * @param Response
+	 * @param Request $request
+	 * @param Response $response
+	 * @throws Alert
+	 * @author salvipascual
 	 */
-	public function _users(Request $request, Response $response)
+	public function _forms(Request $request, Response $response)
 	{
-		$users = [
-			(Object) ['username' => 'tomasito', 'gender' => 'M', 'avatar' => 'hombre', 'avatarColor' => 'red'],
-			(Object) ['username' => 'andrecito', 'gender' => '', 'avatar' => 'artista', 'avatarColor' => 'verde'],
-			(Object) ['username' => 'martin', 'gender' => 'F', 'avatar' => 'hippie', 'avatarColor' => 'amarillo'],
-			(Object) ['username' => 'pedro', 'gender' => 'M', 'avatar' => 'jefe', 'avatarColor' => 'naranja'],
-			(Object) ['username' => 'tina', 'gender' => 'F', 'avatar' => 'sensei', 'avatarColor' => 'azul'],
-			(Object) ['username' => 'maria', 'gender' => 'F', 'avatar' => 'apretina', 'avatarColor' => 'morado'],
+		// create content array
+		$content = [
+			"inputs" => array(
+				array(
+					"icon" => "fas fa-user",
+					"label" => "Inserte su @username"
+				),
+				array(
+					"label" => "Inserte su correo",
+					"type" => "email",
+					"value" => "salvi@gmail.com"
+				)
+			),
+			"textarea" => array(
+				"icon" => "fas fa-question",
+				"label" => "Descríbase en 140 caracteres"
+			),
+			"editor" => array(
+				"label" => "¿Qué cree de la Pizarra?",
+				"isEditor" => true,
+				"value" => "<i>gta </i><b>gta </b><u>gta</u>"
+			),
+			"switch" => array(
+				"label" => "Mostrar género",
+				"active" => true
+			),
+			"combo" => array(
+				"icon" => "fas fa-male",
+				"label" => "Género",
+				"selected" => "M",
+				"options" => array(
+					array(
+						"value" => "M",
+						"caption" => "Masculino"
+					),
+					array(
+						"value" => "F",
+						"caption" => "Femenino"
+					)
+				)
+			),
+			"buttonOk" => array(
+				"icon" => "fas fa-thumbs-up",
+				"caption" => "Aceptar",
+				"size" => "large",
+				"isPrimary" => true,
+				"ontap" => "fireExampleEvent"
+			),
+			"buttonOpt" => array(
+				"caption" => "Más opciones",
+				"size" => "medium",
+				"isPrimary" => false,
+				"ontap" => "fireExampleEvent"
+			),
+			"buttonDel" => array(
+				"icon" => "fas fa-thumbs-down",
+				"caption" => "Cancelar",
+				"size" => "small",
+				"isPrimary" => false,
+				"ontap" => "fireExampleEvent"
+			)
 		];
 
-		$response->setTemplate("users.ejs", ['users' => $users]);
+		// create response
+		$response->setCache();
+		$response->setComponent('Forms', $content);
 	}
 
 	/**
-	 * A cloud of tags
+	 * A social screen
 	 *
-	 * @param Request
-	 * @param Response
+	 * @param Request $request
+	 * @param Response $response
+	 * @throws Alert
+	 * @author salvipascual
 	 */
-	public function _tags(Request $request, Response $response)
+	public function _social(Request $request, Response $response)
 	{
-		$items = ['tomasito','andrecito','martin','pedro','tina','maria','hombre','artista','hippie','jefe','sensei','apretina','red','verde','amarillo','naranja','azul','morado'];
+		// create content array
+		$content = [
+			"card" => array(
+				"isAd" => true,
+				"image" => "https://apretaste.blob.core.windows.net/pizarra/0001b26d50758625f7d74928f2ca5b9c.jpg",
+				"text" => "Secondarely, @salvipascual this is a #NiceText to show, that points to https://www.apretaste.org or opens the email salvi@apretaste.org, and cannot be larger of certain #NumberOfChars, because it won\'t let the text go to a #third line",
+				"inserted" => "2020-06-30 15:25:50",
+				"username" => "salvipascual",
+				"gender" => "M",
+				"avatar" => array(
+					"face" => "nerd",
+					"color" => "naranja",
+					"online" => true,
+					"influencer" => true
+				),
+				"shared" => array(
+					"icon" => "fas fa-newspaper",
+					"text" => "Secondarely, a nice text to show, that cannot be larger of certain number of chars, because it wont let the text go to a third line",
+					"ontap" => "fireExampleEvent"
+				),
+				"reactions" => array(
+					"like" => 11,
+					"love" => 2,
+					"lol" => 4,
+					"angry" => 1,
+					"amaze" => 5,
+					"sad" => 0,
+					"sucks" => 1
+				)
+			),
+			"paginator" => array(
+				"page" => 5,
+				"total" => 11,
+				"ontapNext" => "fireExampleEvent",
+				"ontapBack" => "fireExampleEvent"
+			)
+		];
 
-		$tags = [];
-		foreach ($items as $tag) {
-			$tags[] = (Object) ['tag' => $tag, 'size' => rand(1, 10)];
-		}
-
-		$response->setTemplate("tags.ejs", ['tags' => $tags]);
+		// create response
+		$response->setCache();
+		$response->setComponent('Social', $content);
 	}
 
 	/**
-	 * A possible screen to create any form
+	 * A rules screen
 	 *
-	 * @param Request
-	 * @param Response
+	 * @param Request $request
+	 * @param Response $response
+	 * @throws Alert
+	 * @author salvipascual
 	 */
-	public function _form(Request $request, Response $response)
+	public function _reglas(Request $request, Response $response)
 	{
-		$response->setTemplate("form.ejs");
-	}
+		// create content array
+		$content = [
+			"rules" => array(
+				array(
+					"title" => "Esto es lo primero que debes saber",
+					"text" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor salvi@apretaste.org incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+				),
+				array(
+					"title" => "Esto es lo segubndo mas importante que debes saber",
+					"text" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+				),
+				array(
+					"text" => "Lorem ipsum dolor sit amet, consectetur a @salvipascual adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+				),
+				array(
+					"title" => "Y aca, viene la bomba",
+					"text" => "Lorem ipsum dolor sit amet, https://www.apretaste.org consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+				)
+			)
+		];
 
-	/**
-	 * A possible screen to display text (about/rules/etc.)
-	 *
-	 * @param Request
-	 * @param Response
-	 */
-	public function _rules(Request $request, Response $response)
-	{
-		$response->setTemplate("rules.ejs");
-	}
-
-	/**
-	 * A possible screen when message is not found
-	 *
-	 * @param Request
-	 * @param Response
-	 */
-	public function _empty(Request $request, Response $response)
-	{
-		$response->setTemplate("empty.ejs");
-	}
-
-	/**
-	 * A possible screen for messages (possitive or negative)
-	 *
-	 * @param Request
-	 * @param Response
-	 */
-	public function _message(Request $request, Response $response)
-	{
-		$response->setTemplate('message.ejs', [
-			'header' => 'Todo está bien',
-			'icon' => 'thumb_up',
-			'text' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-			'btnLink' => 'BAREBONE',
-			'btnCaption' => 'Ver otros']);
-	}
-
-	/**
-	 * Show a list of check tags
-	 *
-	 * @param Request
-	 * @param Response
-	 */
-	public function _checks(Request $request, Response $response)
-	{
-		$response->setTemplate("checks.ejs");
+		// create response
+		$response->setCache();
+		$response->setComponent('Reglas', $content);
 	}
 }
