@@ -45,7 +45,6 @@
 				text: {text: 'Bienvenido a los barebones @' + apretaste.request.username + '. Usa este servicio para guiar tus interfaces gráficas y #BuenasPracticas de programación a la ahora de escribir un servicio para https://www.apretaste.org, y si tienes dudas escríbeme a salvi@apretaste.org.'},
 				avatarInternet: {
 					picture: apretaste.servicePath + '/images/salvipascual.jpg',
-					letter: 'x',
 					color: 'rojo',
 					size: 50,
 					online: true,
@@ -54,7 +53,7 @@
 				avatarEmail: {
 					letter: 's',
 					color: 'rojo',
-					size: 50,
+					size: 20,
 					online: true,
 					influencer: false
 				},
